@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Table} from "react-bootstrap";
 import TableRows from "./TableRows";
+import ChoreForm from "./ChoreForm";
 
 function Chores () {
 
@@ -23,12 +24,14 @@ function Chores () {
                     <th>Chore</th>
                     <th>Date</th>
                     <th>Assigned To</th>
+                    <th>Changes</th>
                 </tr>
                 </thead>
                 <tbody>
                     {choreRow}
                 </tbody>
             </Table>
+            <ChoreForm />
         </div>
     )
 }

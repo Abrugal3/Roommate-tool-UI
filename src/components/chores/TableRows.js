@@ -1,4 +1,7 @@
 import React from 'react';
+import {Button} from "react-bootstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 function TableRows (props) {
     console.log(props)
@@ -8,6 +11,14 @@ function TableRows (props) {
             <td>{props.choreData.choreName}</td>
             <td>{props.choreData.date}</td>
             <td>{props.choreData.roommate}</td>
+            <td>
+                <Button variant="info" type="submit" className="button-margin">
+                    <FontAwesomeIcon icon={faEdit}/>
+                </Button>
+                <Button variant="danger" type="submit">
+                    <FontAwesomeIcon icon={faTrash}/>
+                </Button>
+            </td>
         </tr>
     )
 }
