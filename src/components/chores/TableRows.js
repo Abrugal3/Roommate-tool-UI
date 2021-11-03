@@ -1,10 +1,13 @@
-import React from 'react';
-import {Button} from "react-bootstrap";
+import React, {useState} from 'react';
+import {Button, Modal} from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import ChoreForm from "./ChoreForm";
 
 function TableRows (props) {
-    console.log(props)
+
+
+
     return(
         <tr>
             <td>{props.choreData.id}</td>

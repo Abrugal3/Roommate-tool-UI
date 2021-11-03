@@ -1,11 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Table} from "react-bootstrap";
+import {Button, Modal, Table} from "react-bootstrap";
 import TableRows from "./TableRows";
 import ChoreForm from "./ChoreForm";
 
 function Chores () {
 
     const [choreData, setChoreData] = useState([])
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     useEffect(() => {
         fetch("/chores")
@@ -31,7 +34,10 @@ function Chores () {
                     {choreRow}
                 </tbody>
             </Table>
-            <ChoreForm />
+            <Modal show={show} onHide={handleClose}>
+                <ChoreForm />
+            </Modal>
+            <Button onClick={handleShow} />
         </div>
     )
 }
