@@ -36,8 +36,10 @@
     transform: rotate(360deg);
   }
 }
-
-.btn{
+.chore-btn, .expense-btn {
   margin: 10px;
-  font-size: 2rem;
+}
+.chore-btn>h1, .expense-btn>h1 {
+  font-size: 1.5rem;
+  margin: 5px;
 }
