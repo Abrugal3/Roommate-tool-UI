@@ -1,15 +1,18 @@
-import React from 'react';
-import {Button, Table} from "react-bootstrap";
-
-
+import React, { useEffect, useState } from 'react';
+import {Table} from "react-bootstrap";
+import TableRowExpenses from './TableRowExpenses';
 
 function Expenses () {
 
-    async function fetchExpenses(){
+    const[expenses, setExpenses] = useState([]);
+
+    useEffect(() => {
         fetch("/expenses")
             .then(response => response.json())
-            .then(data => console.log(data));
-    }
+            .then(data => setExpenses(data));
+    });
+
+    const expenseRows = expenses.map(expense => <TableRowExpenses expenseData={expense}/>);
 
     return(
         <div className="Expenses">
@@ -18,21 +21,16 @@ function Expenses () {
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Chore</th>
+                    <th>Expense</th>
                     <th>Assigned To</th>
+                    <th>Price</th>
                     <th>Date</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
+                    {expenseRows}
                 </tbody>
             </Table>
-            <Button className="expense-btn" variant="dark" onClick={() => fetchExpenses()}><h1>Expenses</h1></Button>
         </div>
     )
 }
