@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {Button, Modal, Table} from "react-bootstrap";
 import TableRows from "./TableRows";
 import ChoreForm from "./ChoreForm";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPlus} from "@fortawesome/free-solid-svg-icons";
 
 function Chores () {
 
@@ -16,7 +18,7 @@ function Chores () {
             .then(response => setChoreData(response));
     });
 
-    const choreRow = choreData.map(choreData => <TableRows choreData={choreData} />)
+    const choreRow = choreData.map(choreData => <TableRows choreData={choreData}/>)
     return(
         <div className="Chore">
             <h1 className="Header">Chores</h1>
@@ -35,9 +37,11 @@ function Chores () {
                 </tbody>
             </Table>
             <Modal show={show} onHide={handleClose}>
-                <ChoreForm />
+                <ChoreForm  update={false}/>
             </Modal>
-            <Button onClick={handleShow} />
+            <Button variant="success" type="submit" onClick={handleShow}>
+                <FontAwesomeIcon icon={faPlus}/>
+            </Button>
         </div>
     )
 }
