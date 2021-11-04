@@ -29,12 +29,10 @@ function ChoreForm (props) {
             body: JSON.stringify(chore)
         })
     }
-        console.log(props.update)
         return (
             <div>
-
                 <Modal.Header closeButton>
-                    <Modal.Title>{props.update ? 'Update Chore' : 'Add a Chore'}</Modal.Title>
+                    <Modal.Title>{props.update ? 'Update Chore ' : 'Add a Chore'}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
@@ -65,8 +63,8 @@ function ChoreForm (props) {
                             </Button>
                             :
                             <Button variant="primary" onClick={newChore}>
-                            Submit
-                        </Button>
+                                Add
+                            </Button>
                         }
                     </Form>
                 </Modal.Body>

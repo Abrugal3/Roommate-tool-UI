@@ -40,7 +40,7 @@ function Chores () {
                 <ChoreForm  update={false}/>
             </Modal>
             <Button variant="success" type="submit" onClick={handleShow}>
-                <FontAwesomeIcon icon={faPlus}/>
+                Add a Chore
             </Button>
         </div>
     )
